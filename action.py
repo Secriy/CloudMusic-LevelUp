@@ -222,7 +222,7 @@ def getArgs():
         'sckey': args.SCKEY,
         'playlist': args.PLAYLIST
     }
-
+print("测试")
 
 if __name__ == "__main__":
     # Get Args
