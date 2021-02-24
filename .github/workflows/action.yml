@@ -5,7 +5,7 @@ name: 网易云飞升
 
 on:
   schedule:
-    - cron: "0 21/22/23/24 * * *"
+    - cron: "0 21/22 * * *"
   workflow_dispatch:
 
 jobs:
