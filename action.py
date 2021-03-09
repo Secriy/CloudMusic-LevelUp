@@ -225,8 +225,8 @@ def getArgs():
     }
 
 
-# Server酱推送提醒
-
+# Server酱报错推送提醒，需要填下下面的key，官网：https://sc.ftqq.com/3.version
+SCKEY = ""
 
 def pushMessage(data):
     if SCKEY != "":
