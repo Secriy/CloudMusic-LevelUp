@@ -5,7 +5,7 @@ name: 网易云音乐
 
 on:
   schedule:
-    - cron: "0 16 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
 
 jobs:
@@ -31,6 +31,7 @@ jobs:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
           sed -i 's|SCKEY = ""|SCKEY = "${{ secrets.SCKEY }}"|' action.py
+          
           random_time=$(($RANDOM % 1))
           echo "等待 ${random_time} 分钟后开始签到"
           for((i=1;i<=${random_time};i++));  
