@@ -32,7 +32,7 @@ jobs:
         run: |
           sed -i 's|SCKEY = ""|SCKEY = "${{ secrets.SCKEY }}"|' action.py
           
-          random_time=$(($RANDOM % 1))
+          random_time=$(($RANDOM % 27))
           echo "等待 ${random_time} 分钟后开始签到"
           for((i=1;i<=${random_time};i++));  
           do
