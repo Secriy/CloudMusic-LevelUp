@@ -18,6 +18,7 @@ import binascii
 import codecs
 import argparse
 import random
+import time
 from Crypto.Cipher import AES
 
 
