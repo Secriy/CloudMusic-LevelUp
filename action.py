@@ -251,7 +251,7 @@ if __name__ == "__main__":
     print(30 * "=")
     try:
         pushMessage({
-            "text": f"网易云音乐{res}",
+            "text": f"网易云音乐 {res}",
             "desp": time.strftime("%Y-%m-%d %H:%M:%S")
         })
     except Exception as err:
