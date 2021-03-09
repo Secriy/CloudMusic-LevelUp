@@ -30,6 +30,14 @@ jobs:
           PLAYLIST: ${{ secrets.PLAYLIST }}
           SCKEY: ${{ secrets.SCKEY }}
         run: |
+          random_time=$(($RANDOM % 1))
+          echo "等待 ${random_time} 分钟后开始签到"
+          for((i=1;i<=${random_time};i++));  
+          do
+          echo "倒计时:剩余 $[${random_time}-$i] 分钟"
+          sleep 1m
+          done
+          
           if [ ${NOMD5_PASSWORD} ];then PASSWORD=$(echo -n "${NOMD5_PASSWORD}"|md5sum|cut -d " " -f1); fi
           if [ ${PLAYLIST} ];then PLAYLIST_CMD="-l $PLAYLIST"; fi
           python3 action.py ${PHONE} ${PASSWORD} -s ${SCKEY} ${PLAYLIST_CMD}
