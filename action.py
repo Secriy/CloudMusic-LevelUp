@@ -222,7 +222,15 @@ def getArgs():
         'sckey': args.SCKEY,
         'playlist': args.PLAYLIST
     }
+# Server酱报错推送提醒，需要填下下面的key，官网：https://sc.ftqq.com/3.version
+SCKEY = ""
 
+
+def pushMessage(data):
+    if SCKEY != "":
+        return requests.post(f"https://sc.ftqq.com/{SCKEY}.send", data=data)
+    else:
+        return False
 
 if __name__ == "__main__":
     # Get Args
@@ -241,9 +249,10 @@ if __name__ == "__main__":
     print(res)
     print(30 * "=")
     try:
-        if info['sckey']:
-            # 调用Server酱
-            app.server_chan_turbo(info['sckey'][0], res)
+        pushMessage({
+            "text": f"网易云音乐{res}",
+            "desp": time.strftime("%Y-%m-%d %H:%M:%S")
+        })
     except Exception as err:
         print("Server酱调用失败：" + err)
     print(30 * "=")
